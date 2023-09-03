@@ -7,17 +7,20 @@ The second is one of the following mathematical operators: +, -, /, or .
 The third parameter will also be an integer.
 
 The function should perform a calculation and return the results.
-For example, if the function is passed 6 and 4, it should return 24.
+For example, if the function is passed 6, * and 4, it should return 24.
 """
 
 
 def calculate(operand_1, operator, operand_2):
 
-    if not (isinstance(operand_1, int) and isinstance(operand_2, int)):
-        raise ValueError()
+    if not (type(operand_1) == int or type(operand_1) == float):
+        raise ValueError("Error in operand_1 parameter")
 
-    if not (isinstance(operator, str) and operator in ['+', '-', '/', '*']):
-        raise ValueError()
+    if not (type(operand_1) == int or type(operand_1) == float):
+        raise ValueError("Error in operand_2 parameter")
+
+    if not (type(operator) == str and operator in ['+', '-', '/', '*']):
+        raise ValueError("Error in operator parameter")
 
     expression = f"{operand_1} {operator} {operand_2}"
 
@@ -26,7 +29,7 @@ def calculate(operand_1, operator, operand_2):
 
 if __name__ == '__main__':
 
-    operand_1 = 6
+    operand_1 = float(6)
     operand_2 = 4
     operator = '*'
     result = calculate(operand_1, operator, operand_2)
